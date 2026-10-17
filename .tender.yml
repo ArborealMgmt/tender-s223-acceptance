@@ -1,0 +1,32 @@
+{
+  "branches": [
+    {
+      "name": "main",
+      "tagPrefix": "s223-v",
+      "stages": {
+        "batch": [
+          "registry"
+        ]
+      }
+    }
+  ],
+  "image": "Dockerfile",
+  "suites": {
+    "registry": {
+      "executor": "machines",
+      "run": "python3 acceptance.py --bootstrap",
+      "size": "small",
+      "timeoutMinutes": 5
+    }
+  },
+  "fallback": {
+    "targets": []
+  },
+  "pool": {
+    "warm": 0,
+    "maxVms": 2,
+    "idleMinutes": 5,
+    "maxLifetimeMinutes": 30,
+    "prefer": "cost"
+  }
+}
